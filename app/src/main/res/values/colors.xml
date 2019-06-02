@@ -4,11 +4,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="lightGray">#888888</color>
-    <color name="sleep">#414766</color>
-    <color name="work">#F98583</color>
-    <color name="study">#B4CC65</color>
-    <color name="exercise">#FBB06D</color>
-    <color name="leisure">#C7ACEE</color>
+    <color name="sleep">#AB93C9</color>
+    <color name="work">#d698b9</color>
+    <color name="study">#eda1ab</color>
+    <color name="exercise">#ffbea3</color>
+    <color name="leisure">#FCECA6</color>
 
     <color name="radio_button_selected_color">#ff33b5e5</color>
     <color name="radio_button_unselected_color">@android:color/transparent</color>

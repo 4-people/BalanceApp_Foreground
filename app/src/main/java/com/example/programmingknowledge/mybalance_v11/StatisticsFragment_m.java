@@ -13,18 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import static com.example.programmingknowledge.mybalance_v11.HomeFragment.subDate;
-import static java.lang.Integer.parseInt;
 
-public class StatisticsFragment extends Fragment {
+public class StatisticsFragment_m extends Fragment {
 
     private ViewPager mViewPager;
     FragmentManager fm;
     FragmentTransaction tran;
-    StatisticsFragment_m statfrag_m;
+    StatisticsFragment statfrag;
     Button weekButton;
     Button monthButton;
     int page = 3;
@@ -46,18 +48,19 @@ public class StatisticsFragment extends Fragment {
         ////////////////////////일단 위에 변수로 page수 4개로 고정해놨음
 
         mViewPager = (ViewPager)view.findViewById(R.id.pager_week);
-        StatisticsFragment.MyPagerAdapter adapter = new StatisticsFragment.MyPagerAdapter(getChildFragmentManager(), page);
+        StatisticsFragment_m.MyPagerAdapter adapter = new StatisticsFragment_m.MyPagerAdapter(getChildFragmentManager(), page);
         mViewPager.setAdapter(adapter);
         mViewPager.setCurrentItem(page - 1);
 
         //버튼 전환
-        weekButton = (Button)view.findViewById(R.id.weekButton);
-        weekButton.setPressed(true);
-
-        //월별로 전환
         monthButton = (Button)view.findViewById(R.id.monthButton);
-        statfrag_m = new StatisticsFragment_m();
-        monthButton.setOnClickListener(new View.OnClickListener() {
+        monthButton.setPressed(true);
+
+        //주별로 전환
+        weekButton = (Button)view.findViewById(R.id.weekButton);
+        weekButton.clearFocus();
+        statfrag = new StatisticsFragment();
+        weekButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setFrag(0);
@@ -72,7 +75,7 @@ public class StatisticsFragment extends Fragment {
         tran = fm.beginTransaction();
         switch (n){
             case 0:
-                tran.replace(R.id.fragment_container, statfrag_m);
+                tran.replace(R.id.fragment_container, statfrag);
                 tran.commit();
                 break;
             //main_frame자리에 현재 frame이름
@@ -93,19 +96,25 @@ public class StatisticsFragment extends Fragment {
         public Fragment getItem(int position) {
             Fragment frag;
             //Date date = new Date();
-            //SimpleDateFormat sdfdate = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat sdfdate = new SimpleDateFormat("yyyy/MM/dd");
             //String formatDate = sdfdate.format(date);
-            String curMonday = getCurMonday();
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.DAY_OF_MONTH,1);
+            Date cur1stDay = cal.getTime();
+
 
             for (int i = 0; i < page; i++) {
                 if (position == i) {
+                    Calendar cal2 = Calendar.getInstance();
+                    cal.setTime(cur1stDay);
+                    cal.add ( cal.MONTH, (i + 1 - page) ); //i개월 전....드디어 성공...
+                    cur1stDay = cal.getTime();
 
-                    try {
-                        curMonday = subDate(curMonday, ((i + 1 - page) * 7));
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    frag = WeekStatFragment.newInstance(curMonday);
+                    String cur1stDayStr = sdfdate.format(cur1stDay);
+                    frag = MonthStatFragment.newInstance(cur1stDayStr);
+
+
                     return frag;
                 }
             }
@@ -116,14 +125,6 @@ public class StatisticsFragment extends Fragment {
         public int getCount() {
             return page;
         }
-    }
-
-    //현재 날짜 월요일
-    public static String getCurMonday(){
-        java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy/MM/dd");
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.DAY_OF_WEEK,Calendar.MONDAY);
-        return formatter.format(c.getTime());
     }
 
 }

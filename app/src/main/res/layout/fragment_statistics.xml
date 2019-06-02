@@ -18,7 +18,7 @@
         segmentedgroup:sc_checked_text_color="#FFFFFF">
 
         <RadioButton
-            android:id="@+id/button21"
+            android:id="@+id/weekButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -26,7 +26,7 @@
             style="@style/RadioButton" />
 
         <RadioButton
-            android:id="@+id/button22"
+            android:id="@+id/monthButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

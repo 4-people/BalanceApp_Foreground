@@ -25,7 +25,6 @@ import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
 import lecho.lib.hellocharts.view.ColumnChartView;
 
-import static com.example.programmingknowledge.mybalance_v11.HomeFragment.subDate;
 import static java.lang.Integer.parseInt;
 
 public class WeekStatFragment extends Fragment {
@@ -74,10 +73,10 @@ public class WeekStatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View rootView = inflater.inflate(R.layout.fragment_weekstat, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_stat, container, false);
 
         chart = (ColumnChartView) rootView.findViewById(R.id.chart);
-        //fragment_weekstat.setOnValueTouchListener(new ValueTouchListener());   //차트를 선택했을때 값이 팝업으로 뜨는 함수
+        //fragment_stat.setOnValueTouchListener(new ValueTouchListener());   //차트를 선택했을때 값이 팝업으로 뜨는 함수
         chart.setZoomEnabled(false);
 
         //db읽기
@@ -112,7 +111,7 @@ public class WeekStatFragment extends Fragment {
     }
 
     public void setWeekRange(View rootView){
-        TextView weekRange = rootView.findViewById(R.id.weekrange);
+        TextView weekRange = rootView.findViewById(R.id.range);
         String mondayMonth = date.substring(5,7);
         String mondayDay = date.substring(8,10);
         String sundayMonth = sunday.substring(5,7);
@@ -213,14 +212,13 @@ public class WeekStatFragment extends Fragment {
         }
         for (int i=0; i<7; i++) {
             values = new ArrayList<SubcolumnValue>();
-            //Cursor cursor = db.rawQuery("select * from tb_dailybalance where week='"+weeks.get(i)+"' ", null);
             if (cursor.moveToNext()){
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("sleep")), getResources().getColor(R.color.sleep)));
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("work")), getResources().getColor(R.color.work)));
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("study")), getResources().getColor(R.color.study)));
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("exercise")), getResources().getColor(R.color.exercise)));
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("leisure")), getResources().getColor(R.color.leisure)));
-                    values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("other")), getResources().getColor(R.color.lightGray)));
+                    //values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("other")), getResources().getColor(R.color.lightGray)));
 
             }
             Column column = new Column(values);
