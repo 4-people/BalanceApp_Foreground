@@ -9,7 +9,7 @@ import org.w3c.dom.Text;
 
 import java.util.Date;
 
-//혜린's DBHelper ^_^
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;

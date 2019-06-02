@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
@@ -11,27 +11,21 @@ tools:context=".SettingGoalBalanceFragment">
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         android:text="목표 밸런스 설정"
         android:textSize="27sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028" />
+    />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="960px"
         android:layout_height="45dp"
-        android:layout_marginBottom="450dp"
-        android:background="#888888"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62">
+        android:layout_marginBottom="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView"
+        android:background="#888888" >
 
         <View
             android:id="@+id/sleep"
@@ -72,540 +66,502 @@ tools:context=".SettingGoalBalanceFragment">
 
     </RelativeLayout> //게이지 레이아웃
 
-<RelativeLayout
-    android:id="@+id/sleepLayout"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.247">
+    <RelativeLayout
+        android:id="@+id/sleepLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/relativeLayout" >
+
+        <TextView
+            android:id="@+id/textView1-1"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="수면"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/sleepCount"
+            android:layout_width="60dp"
+            android:layout_height="43dp"
+            android:layout_alignLeft="@+id/textView1-1"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="8"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView1-2"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="시간"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/sleepMinus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="278dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/sleepPlus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="323dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </RelativeLayout> //수면 레이아웃
+
+    <RelativeLayout
+        android:id="@+id/workLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/sleepLayout">
+
+        <TextView
+            android:id="@+id/textView2-1"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="일"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/workCount"
+            android:layout_width="60dp"
+            android:layout_height="43dp"
+            android:layout_alignLeft="@+id/textView2-1"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="8"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2-2"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="시간"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/workMinus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="278dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/workPlus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="323dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </RelativeLayout> //일 레이아웃
+
+    <RelativeLayout
+        android:id="@+id/studyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/workLayout">
+
+        <TextView
+            android:id="@+id/textView3-1"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="공부"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/studyCount"
+            android:layout_width="60dp"
+            android:layout_height="43dp"
+            android:layout_alignLeft="@+id/textView3-1"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="3"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3-2"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="시간"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/studyMinus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="278dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/studyPlus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="323dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </RelativeLayout> //공부 레이아웃
+
+    <RelativeLayout
+        android:id="@+id/exerciseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/studyLayout">
+
+        <TextView
+            android:id="@+id/textView4-1"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="운동"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/exerciseCount"
+            android:layout_width="60dp"
+            android:layout_height="43dp"
+            android:layout_alignLeft="@+id/textView4-1"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="2"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4-2"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="시간"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/exerciseMinus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="278dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/exercisePlus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="323dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </RelativeLayout> //운동 레이아웃
+
+    <RelativeLayout
+        android:id="@+id/leisureLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/exerciseLayout">
+
+        <TextView
+            android:id="@+id/textView5-1"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="여가"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/leisureCount"
+            android:layout_width="60dp"
+            android:layout_height="43dp"
+            android:layout_alignLeft="@+id/textView5-1"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="2"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5-2"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="시간"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/leisureMinus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="278dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="-"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/leisurePlus"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="323dp"
+            android:layout_marginTop="10dp"
+            android:onClick="MyOnClick"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </RelativeLayout> //여가 레이아웃
+
+    <RelativeLayout
+        android:id="@+id/othersLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/leisureLayout">
+
+        <TextView
+            android:id="@+id/textView6-1"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="기타"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/othersCount"
+            android:layout_width="60dp"
+            android:layout_height="43dp"
+            android:layout_alignLeft="@+id/textView6-1"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="150dp"
+            android:text="1"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6-2"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="10dp"
+            android:text="시간"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </RelativeLayout> //기타 레이아웃
+
+    <RelativeLayout
+        android:id="@+id/checkboxLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/othersLayout">
+
+        <CheckBox
+            android:id="@+id/CheckMon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="0dp"
+            android:textSize="25sp"
+            android:text="월" />
+
+        <CheckBox
+            android:id="@+id/CheckTue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@id/CheckMon"
+            android:textSize="25sp"
+            android:text="화" />
+
+        <CheckBox
+            android:id="@+id/CheckWed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@id/CheckTue"
+            android:textSize="25sp"
+            android:text="수" />
+
+        <CheckBox
+            android:id="@+id/CheckThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@id/CheckWed"
+            android:textSize="25sp"
+            android:text="목" />
+
+        <CheckBox
+            android:id="@+id/CheckFri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@id/CheckThu"
+            android:textSize="25sp"
+            android:text="금" />
+
+        <CheckBox
+            android:id="@+id/CheckSat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@id/CheckFri"
+            android:textSize="25sp"
+            android:text="토" />
+
+        <CheckBox
+            android:id="@+id/CheckSun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@id/CheckSat"
+            android:textSize="25sp"
+            android:text="일" />
+    </RelativeLayout> //요일 체크박스 레이아웃
 
     <TextView
-        android:id="@+id/textView1-1"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="수면"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="밸런스 설정하기"
+        android:textSize="23sp"
+        android:textColor="#ff000000"
+        android:gravity="center"
+        android:background="#c8c8c8"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:onClick="setBalance"
+        android:layout_alignParentBottom="true"/>
 
-    <TextView
-        android:id="@+id/sleepCount"
-        android:layout_width="60dp"
-        android:layout_height="43dp"
-        android:layout_alignLeft="@+id/textView1-1"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="8"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView1-2"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="10dp"
-        android:text="시간"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/sleepMinus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="278dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="-"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/sleepPlus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="323dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="+"
-        android:textSize="20sp" />
-
-</RelativeLayout> //수면 레이아웃
-
-<RelativeLayout
-    android:id="@+id/workLayout"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.336">
-
-    <TextView
-        android:id="@+id/textView2-1"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="일"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/workCount"
-        android:layout_width="60dp"
-        android:layout_height="43dp"
-        android:layout_alignLeft="@+id/textView2-1"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="8"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2-2"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="10dp"
-        android:text="시간"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/workMinus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="278dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="-"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/workPlus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="323dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="+"
-        android:textSize="20sp" />
-
-</RelativeLayout> //일 레이아웃
-
-<RelativeLayout
-    android:id="@+id/studyLayout"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.426">
-
-    <TextView
-        android:id="@+id/textView3-1"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="공부"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/studyCount"
-        android:layout_width="60dp"
-        android:layout_height="43dp"
-        android:layout_alignLeft="@+id/textView3-1"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="3"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3-2"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="10dp"
-        android:text="시간"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/studyMinus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="278dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="-"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/studyPlus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="323dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="+"
-        android:textSize="20sp" />
-
-</RelativeLayout> //공부 레이아웃
-
-<RelativeLayout
-    android:id="@+id/exerciseLayout"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.515">
-
-    <TextView
-        android:id="@+id/textView4-1"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="운동"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/exerciseCount"
-        android:layout_width="60dp"
-        android:layout_height="43dp"
-        android:layout_alignLeft="@+id/textView4-1"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="2"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4-2"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="10dp"
-        android:text="시간"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/exerciseMinus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="278dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="-"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/exercisePlus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="323dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="+"
-        android:textSize="20sp" />
-
-</RelativeLayout> //운동 레이아웃
-
-<RelativeLayout
-    android:id="@+id/leisureLayout"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.605">
-
-    <TextView
-        android:id="@+id/textView5-1"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="여가"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/leisureCount"
-        android:layout_width="60dp"
-        android:layout_height="43dp"
-        android:layout_alignLeft="@+id/textView5-1"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="2"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5-2"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="10dp"
-        android:text="시간"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/leisureMinus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="278dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="-"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/leisurePlus"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="323dp"
-        android:layout_marginTop="10dp"
-        android:onClick="MyOnClick"
-        android:text="+"
-        android:textSize="20sp" />
-
-</RelativeLayout> //여가 레이아웃
-
-<RelativeLayout
-    android:id="@+id/othersLayout"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.694">
-
-    <TextView
-        android:id="@+id/textView6-1"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="기타"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/othersCount"
-        android:layout_width="60dp"
-        android:layout_height="43dp"
-        android:layout_alignLeft="@+id/textView6-1"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="150dp"
-        android:text="1"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6-2"
-        android:layout_width="50dp"
-        android:layout_height="43dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="10dp"
-        android:text="시간"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</RelativeLayout> //기타 레이아웃
-
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:layout_marginTop="36dp"
-    android:layout_marginBottom="119dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/othersLayout">
-
-    <CheckBox
-        android:id="@+id/CheckMon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="0dp"
-        android:textSize="25sp"
-        android:text="월" />
-
-    <CheckBox
-        android:id="@+id/CheckTue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@id/CheckMon"
-        android:textSize="25sp"
-        android:text="화" />
-
-    <CheckBox
-        android:id="@+id/CheckWed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@id/CheckTue"
-        android:textSize="25sp"
-        android:text="수" />
-
-    <CheckBox
-        android:id="@+id/CheckThu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@id/CheckWed"
-        android:textSize="25sp"
-        android:text="목" />
-
-    <CheckBox
-        android:id="@+id/CheckFri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@id/CheckThu"
-        android:textSize="25sp"
-        android:text="금" />
-
-    <CheckBox
-        android:id="@+id/CheckSat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@id/CheckFri"
-        android:textSize="25sp"
-        android:text="토" />
-
-    <CheckBox
-        android:id="@+id/CheckSun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_toRightOf="@id/CheckSat"
-        android:textSize="25sp"
-        android:text="일" />
-</RelativeLayout> //요일 체크박스 레이아웃
-
-<TextView
-    android:id="@+id/view"
-    android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:text="밸런스 설정하기"
-    android:textSize="23sp"
-    android:textColor="#ff000000"
-    android:gravity="center"
-    android:background="#c8c8c8"
-    android:foreground="?attr/selectableItemBackground"
-    android:clickable="true"
-    android:onClick="setBalance"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-
-    app:layout_constraintVertical_bias="1.0" />
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
