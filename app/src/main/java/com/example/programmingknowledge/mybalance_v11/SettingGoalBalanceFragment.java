@@ -1,6 +1,7 @@
 package com.example.programmingknowledge.mybalance_v11;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -58,7 +59,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
 
         View root = inflater.inflate(R.layout.fragment_setting_goal_balance, container, false);
 
-        InitializeView(root);
+        InitializeView(root, helper);
 
         sleepMinus.setOnClickListener(this);
         sleepPlus.setOnClickListener(this);
@@ -103,7 +104,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
     }
 
 
-    public void InitializeView(View root) {
+    public void InitializeView(View root, DBHelper helper) {
         sleepCountTv = (TextView) root.findViewById(R.id.sleepCount);
         sleepCount = parseInt(sleepCountTv.getText().toString());
         sleepMinus = (Button) root.findViewById(R.id.sleepMinus);
@@ -143,6 +144,40 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
         checkFri = (CheckBox) root.findViewById(R.id.CheckFri);
         checkSat = (CheckBox) root.findViewById(R.id.CheckSat);
         checkSun = (CheckBox) root.findViewById(R.id.CheckSun);
+
+
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select week from tb_goalbalance", null);
+
+        while(cursor.moveToNext()) {
+            String week = cursor.getString(cursor.getColumnIndex("week"));
+            String[] yo = week.split("\\s");
+            for (String s : yo) {
+                switch (s) {
+                    case "월":
+                        checkMon.setEnabled(false);
+                        break;
+                    case "화":
+                        checkTue.setEnabled(false);
+                        break;
+                    case "수":
+                        checkWed.setEnabled(false);
+                        break;
+                    case "목":
+                        checkThu.setEnabled(false);
+                        break;
+                    case "금":
+                        checkFri.setEnabled(false);
+                        break;
+                    case "토":
+                        checkSat.setEnabled(false);
+                        break;
+                    case "일":
+                        checkSun.setEnabled(false);
+                        break;
+                }
+            }
+        }
 
         checkBoxArrayList.add(checkMon);
         checkBoxArrayList.add(checkTue);
@@ -275,6 +310,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
         for (int i = 0; i < checkBoxArrayList.size(); i++) {
             if (checkBoxArrayList.get(i).isChecked()) {
                 checkedWeek += checkBoxArrayList.get(i).getText();
+                checkedWeek += " ";
             }
         }
         db.execSQL("insert into tb_goalbalance (sleep, work, study, exercise, leisure, other, week) values (" +
