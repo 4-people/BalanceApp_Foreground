@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -51,11 +52,11 @@ public class StatisticsFragment extends Fragment {
         mViewPager.setCurrentItem(page - 1);
 
         //버튼 전환
-        weekButton = (Button)view.findViewById(R.id.weekButton);
-        weekButton.setPressed(true);
+        weekButton = (RadioButton) view.findViewById(R.id.weekButton);
+        ((RadioButton) weekButton).setChecked(true);
 
         //월별로 전환
-        monthButton = (Button)view.findViewById(R.id.monthButton);
+        monthButton = (RadioButton)view.findViewById(R.id.monthButton);
         statfrag_m = new StatisticsFragment_m();
         monthButton.setOnClickListener(new View.OnClickListener() {
             @Override

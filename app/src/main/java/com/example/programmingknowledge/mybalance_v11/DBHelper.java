@@ -53,14 +53,4 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-//    public void insertData(String date, int sleep, int study, int exercise, int leisure, int other, String recommend ){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        ContentValues.put(COL_2, date);
-//        ContentValues.put(COL_3,sleep);
-//        long result = db.insert(tb_dailybalance, null,contentValues);
-//
-//    }
-
-
 }

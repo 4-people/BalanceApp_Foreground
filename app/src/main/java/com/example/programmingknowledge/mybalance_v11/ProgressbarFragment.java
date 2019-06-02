@@ -79,8 +79,8 @@ public class ProgressbarFragment extends Fragment {
 
 
         final RoundCornerProgressBar progress1 = (RoundCornerProgressBar) view.findViewById(R.id.progressBar1);
-        progress1.setProgressColor(Color.parseColor("#ff363636"));
-        progress1.setProgressBackgroundColor(Color.parseColor("#ff454344"));
+        progress1.setProgressColor(Color.parseColor("#A481D6"));
+        progress1.setProgressBackgroundColor(getResources().getColor(R.color.sleep));
         progress1.setMax(100);
         //progress1.setProgress(75);
 
@@ -88,8 +88,8 @@ public class ProgressbarFragment extends Fragment {
         int backgroundColor1 = progress1.getProgressBackgroundColor();
 
         final RoundCornerProgressBar progress2 = (RoundCornerProgressBar) view.findViewById(R.id.progressBar2);
-        progress2.setProgressColor(Color.parseColor("#ffff8800"));
-        progress2.setProgressBackgroundColor(Color.parseColor("#7fff8800"));
+        progress2.setProgressColor(Color.parseColor("#E384BD"));
+        progress2.setProgressBackgroundColor(getResources().getColor(R.color.work));
         progress2.setMax(100);
 
 
@@ -97,8 +97,8 @@ public class ProgressbarFragment extends Fragment {
         int backgroundColor2 = progress2.getProgressBackgroundColor();
 
         final RoundCornerProgressBar progress3 = (RoundCornerProgressBar) view.findViewById(R.id.progressBar3);
-        progress3.setProgressColor(Color.parseColor("#ff0099cc"));
-        progress3.setProgressBackgroundColor(Color.parseColor("#7f0099cc"));
+        progress3.setProgressColor(Color.parseColor("#F7889E"));
+        progress3.setProgressBackgroundColor(getResources().getColor(R.color.study));
         progress3.setMax(100);
 
 
@@ -107,8 +107,8 @@ public class ProgressbarFragment extends Fragment {
 
 
         final RoundCornerProgressBar progress4 = (RoundCornerProgressBar) view.findViewById(R.id.progressBar4);
-        progress4.setProgressColor(Color.parseColor("#ff9933cc"));
-        progress4.setProgressBackgroundColor(Color.parseColor("#7f9933cc"));
+        progress4.setProgressColor(Color.parseColor("#FFA582"));
+        progress4.setProgressBackgroundColor(getResources().getColor(R.color.exercise));
         progress4.setMax(100);
 
 
@@ -117,8 +117,8 @@ public class ProgressbarFragment extends Fragment {
 
 
         final RoundCornerProgressBar progress5 = (RoundCornerProgressBar) view.findViewById(R.id.progressBar5);
-        progress5.setProgressColor(Color.parseColor("#ffff4444"));
-        progress5.setProgressBackgroundColor(Color.parseColor("#7fff4444"));
+        progress5.setProgressColor(Color.parseColor("#FEE687"));
+        progress5.setProgressBackgroundColor(getResources().getColor(R.color.leisure));
         progress5.setMax(100);
 
 

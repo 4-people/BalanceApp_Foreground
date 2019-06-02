@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -53,12 +54,11 @@ public class StatisticsFragment_m extends Fragment {
         mViewPager.setCurrentItem(page - 1);
 
         //버튼 전환
-        monthButton = (Button)view.findViewById(R.id.monthButton);
-        monthButton.setPressed(true);
+        monthButton = (RadioButton)view.findViewById(R.id.monthButton);
+        ((RadioButton) monthButton).setChecked(true);
 
         //주별로 전환
-        weekButton = (Button)view.findViewById(R.id.weekButton);
-        weekButton.clearFocus();
+        weekButton = (RadioButton)view.findViewById(R.id.weekButton);
         statfrag = new StatisticsFragment();
         weekButton.setOnClickListener(new View.OnClickListener() {
             @Override

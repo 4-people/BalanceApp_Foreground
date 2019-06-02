@@ -77,13 +77,15 @@ public class HomeFragment extends Fragment {
         SQLiteDatabase db = helper.getWritableDatabase();
         //db.execSQL("delete from tb_timeline");
         db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
-                new String[]{"2019/05/25", "한강동아아파트", "sleep", "01:15:16", "06:18:26"});
+                new String[]{"2019/06/02", "한강동아아파트", "sleep", "01:15:16", "06:18:26"});
         db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
-                new String[]{"2019/05/26", "경기대학교", "study", "09:05:00", "11:55:12"});
+                new String[]{"2019/06/02", "경기대학교", "study", "06:18:26", "11:55:12"});
         db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
-                new String[]{"2019/05/27", "헬스장", "exercise", "15:27:35", "18:46:33"});
+                new String[]{"2019/06/02", "헬스장", "exercise", "11:55:12", "18:46:33"});
         db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
-                new String[]{"2019/05/28", "집", "sleep", "01:02:44", null});
+                new String[]{"2019/06/02", "집", "work", "18:46:33", "19:50:33"});
+        db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
+                new String[]{"2019/06/02", "허허", "leisure", "19:50:33", "20:57:43"});
 
         Cursor cursor = db.rawQuery("select distinct date from tb_timeline", null);
         while(cursor.moveToNext()) {
