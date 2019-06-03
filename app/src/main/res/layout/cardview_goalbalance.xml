@@ -34,10 +34,10 @@
         app:layout_constraintVertical_bias="0.419">
 
         <View
-            android:id="@+id/sleep"
+            android:id="@+id/rest"
             android:layout_width="320px"
             android:layout_height="wrap_content"
-            android:background="@color/sleep"
+            android:background="@color/rest"
             android:visibility="visible" />
 
         <View
@@ -45,7 +45,7 @@
             android:layout_width="320px"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
-            android:layout_toRightOf="@id/sleep"
+            android:layout_toRightOf="@id/rest"
             android:background="@color/work" />
 
         <View

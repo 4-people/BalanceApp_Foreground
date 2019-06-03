@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment {
         SQLiteDatabase db = helper.getWritableDatabase();
         //db.execSQL("delete from tb_timeline");
         db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
-                new String[]{"2019/06/02", "한강동아아파트", "sleep", "01:15:16", "06:18:26"});
+                new String[]{"2019/06/02", "한강동아아파트", "rest", "01:15:16", "06:18:26"});
         db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
                 new String[]{"2019/06/02", "경기대학교", "study", "06:18:26", "11:55:12"});
         db.execSQL("insert into tb_timeline (date, place, category, starttime, endtime) values (?,?,?,?,?)",
@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment {
             Cursor cursor2 = db.rawQuery("select * from tb_dailybalance where date=?",  new String[]{date});
             //특정 날짜의 row가 없으면 추가
             if(cursor2.getCount()==0) {
-                db.execSQL("insert into tb_dailybalance (date, week, sleep, work, study, exercise, leisure, other) values (?,?,0,0,0,0,0,0)",
+                db.execSQL("insert into tb_dailybalance (date, week, rest, work, study, exercise, leisure, other) values (?,?,0,0,0,0,0,0)",
                         new String[]{date, getWeek(date)});
             }
         }

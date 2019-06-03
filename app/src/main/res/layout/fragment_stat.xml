@@ -81,7 +81,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/sleepAverage"
+                android:id="@+id/restAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="0dp"
@@ -89,13 +89,13 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/sleepAverageValue"
+                android:id="@+id/restAverageValue"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
-                android:layout_toEndOf="@+id/sleepAverage"
+                android:layout_toEndOf="@+id/restAverage"
                 android:text="00:00:00"
                 android:textSize="20dp" />
 
@@ -103,7 +103,7 @@
                 android:id="@+id/workAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_below="@+id/sleepAverage"
+                android:layout_below="@+id/restAverage"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
@@ -114,7 +114,7 @@
                 android:id="@+id/workAverageValue"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
-                android:layout_below="@+id/sleepAverageValue"
+                android:layout_below="@+id/restAverageValue"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/workAverage"
@@ -150,7 +150,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:layout_toEndOf="@id/sleepAverageValue"
+                android:layout_toEndOf="@id/restAverageValue"
                 android:text="운동"
                 android:textSize="20dp" />
 
@@ -172,7 +172,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:layout_toEndOf="@id/sleepAverageValue"
+                android:layout_toEndOf="@id/restAverageValue"
                 android:text="여가"
                 android:textSize="20dp" />
 
@@ -195,7 +195,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:layout_toEndOf="@id/sleepAverageValue"
+                android:layout_toEndOf="@id/restAverageValue"
                 android:text="기타"
                 android:textSize="20dp" />
 

@@ -37,7 +37,7 @@ public class GoalBalanceListFragment extends Fragment {
         //db읽기
         DBHelper helper = new DBHelper(container.getContext());
         SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select sleep, work, study, exercise, leisure, other, week from tb_goalbalance", null);
+        Cursor cursor = db.rawQuery("select rest, work, study, exercise, leisure, other, week from tb_goalbalance", null);
 
 
         //DB에 데이터가 있으면
@@ -104,8 +104,8 @@ public class GoalBalanceListFragment extends Fragment {
                 layout.addView(goalBalanceCardView);
 
                 //게이지바 설정
-                View sleep = (View)goalBalanceCardView.findViewById(R.id.sleep);
-                sleep.setLayoutParams(new LinearLayout.LayoutParams((int)Double.parseDouble(cursor.getString(0))*40, ViewGroup.LayoutParams.MATCH_PARENT));
+                View rest = (View)goalBalanceCardView.findViewById(R.id.rest);
+                rest.setLayoutParams(new LinearLayout.LayoutParams((int)Double.parseDouble(cursor.getString(0))*40, ViewGroup.LayoutParams.MATCH_PARENT));
                 View work = (View)goalBalanceCardView.findViewById(R.id.work);
                 work.setLayoutParams(new LinearLayout.LayoutParams((int)Double.parseDouble(cursor.getString(1))*40, ViewGroup.LayoutParams.MATCH_PARENT));
                 View study = (View)goalBalanceCardView.findViewById(R.id.study);

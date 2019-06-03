@@ -70,7 +70,7 @@ public class ProgressbarFragment extends Fragment {
         setProgressbar(view, helper);
 
         //위에 날짜 띄우기
-        dateNow = (TextView)view.findViewById(R.id.today);
+        dateNow = (TextView) view.findViewById(R.id.today);
         String date = mParam1.substring(5);
         if (date.equals(new SimpleDateFormat("MM/dd").format(new Date())))
             dateNow.setText("오늘");
@@ -80,7 +80,7 @@ public class ProgressbarFragment extends Fragment {
 
         final RoundCornerProgressBar progress1 = (RoundCornerProgressBar) view.findViewById(R.id.progressBar1);
         progress1.setProgressColor(Color.parseColor("#A481D6"));
-        progress1.setProgressBackgroundColor(getResources().getColor(R.color.sleep));
+        progress1.setProgressBackgroundColor(getResources().getColor(R.color.rest));
         progress1.setMax(100);
         //progress1.setProgress(75);
 
@@ -139,7 +139,7 @@ public class ProgressbarFragment extends Fragment {
             showMessage("경고", "모든 요일의 밸런스를 설정해주세요!");
         }
         while (cursor1.moveToNext()) {
-            goal[0] = cursor1.getFloat(cursor1.getColumnIndex("sleep"));
+            goal[0] = cursor1.getFloat(cursor1.getColumnIndex("rest"));
             goal[1] = cursor1.getFloat(cursor1.getColumnIndex("work"));
             goal[2] = cursor1.getFloat(cursor1.getColumnIndex("study"));
             goal[3] = cursor1.getFloat(cursor1.getColumnIndex("exercise"));
@@ -154,7 +154,7 @@ public class ProgressbarFragment extends Fragment {
         }
 
         while (cursor2.moveToNext()) {
-            measured[0] = cursor2.getFloat(cursor2.getColumnIndex("sleep"));
+            measured[0] = cursor2.getFloat(cursor2.getColumnIndex("rest"));
             measured[1] = cursor2.getFloat(cursor2.getColumnIndex("work"));
             measured[2] = cursor2.getFloat(cursor2.getColumnIndex("study"));
             measured[3] = cursor2.getFloat(cursor2.getColumnIndex("exercise"));
@@ -173,29 +173,25 @@ public class ProgressbarFragment extends Fragment {
         float min = 100;
         float max = 100;
         int recommend_min = 100;
-        int recommend_max=0;
+        int recommend_max = 0;
         //recommend는 0~4 를 통해 카테고리 알려줌
 
-        for(int i=0;i<result.length;i++) {
-            if(max<result[i]) {
+        for (int i = 0; i < result.length; i++) {
+            if (max < result[i]) {
                 //max의 값보다 array[i]이 크면 max = array[i]
                 max = result[i];
                 recommend_max = i;
             }
 
-            if(min>result[i]) {
+            if (min > result[i]) {
                 //min의 값보다 array[i]이 작으면 min = array[i]
                 min = result[i];
                 recommend_min = i;
             }
 
-
             //추천활동이 카테고리별 과잉(너무 많이 함)에 대한 결과일 경우 +5를 해준다.(setRecommend로 넘기기 쉽게)
-            if(max-100 > 100-min)
-                recommend_min = recommend_max+5;
-
-
-
+            if (max - 100 > 100 - min)
+                recommend_min = recommend_max + 5;
         }
         setRecommend(recommend_min);
 
@@ -221,18 +217,18 @@ public class ProgressbarFragment extends Fragment {
     }
 
     private void setRecommend(int recommend) {
-        imageView = (ImageView)view.findViewById(R.id.imageView);
-        TextView textView2 = (TextView)view.findViewById(R.id.recommend);
+        imageView = (ImageView) view.findViewById(R.id.imageView);
+        TextView textView2 = (TextView) view.findViewById(R.id.recommend);
 
-        switch (recommend){
+        switch (recommend) {
             case 0:
                 //수면 부족
-                textView2.setText("수면이 부족한");
-                imageView.setImageResource(R.drawable.sleep_l);
+                textView2.setText("휴식이 부족한");
+                imageView.setImageResource(R.drawable.rest_l);
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=숙면+도움&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=수면+부족&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -245,7 +241,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=업무+효율&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=업무+꿀팁&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -258,7 +254,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=공부+집중&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=공부+명언&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -271,7 +267,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=운동+장점&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=운동&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -286,7 +282,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=휴식+도움&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=휴식+도움&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -294,12 +290,12 @@ public class ProgressbarFragment extends Fragment {
 
             case 5:
                 //잠 많음
-                textView2.setText("수면이 많은");
-                imageView.setImageResource(R.drawable.sleep_m);
+                textView2.setText("휴식이 많은");
+                imageView.setImageResource(R.drawable.rest_m);
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=잠+중독&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=계획+지키기&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -312,7 +308,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=업무+도움&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=업무+도움&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -324,7 +320,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=공부+효율적&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=공부+효율적&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -336,7 +332,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=운동+중독&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=운동+중독&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -349,7 +345,7 @@ public class ProgressbarFragment extends Fragment {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=계획적+생활&profileId="));
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://brunch.co.kr/search?q=계획적+생활&profileId="));
                         startActivity(intent);
                     }
                 });
@@ -376,15 +372,15 @@ public class ProgressbarFragment extends Fragment {
         //db 추가하기
         SQLiteDatabase db = helper.getWritableDatabase();
 
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-14','토',0,1,2,4,8,0,'잠 부족')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-15','일',10,1,2,4,8,0,'운동 부족')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-16','월',8,8,3,2,2,1,'균형')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-17','화',6,6,6,6,0,0,'여가 부족')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-18','수',0,0,0,0,0,24,'잠 부족')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-19','목',1,4,1,4,1,13,'잠 부족')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-20','금',2,1,2,2,8,9,'운동 부족')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-21','토',4,4,4,4,4,4,'운동 부족')");
-        db.execSQL("insert into tb_dailybalance (date,week,sleep, work, study, exercise, leisure, other, recommend) values ('2019-05-22','일',10,3,3,3,3,2,'일 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-14','토',0,1,2,4,8,0,'잠 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-15','일',10,1,2,4,8,0,'운동 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-16','월',8,8,3,2,2,1,'균형')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-17','화',6,6,6,6,0,0,'여가 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-18','수',0,0,0,0,0,24,'잠 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-19','목',1,4,1,4,1,13,'잠 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-20','금',2,1,2,2,8,9,'운동 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-21','토',4,4,4,4,4,4,'운동 부족')");
+        db.execSQL("insert into tb_dailybalance (date,week,rest, work, study, exercise, leisure, other, recommend) values ('2019-05-22','일',10,3,3,3,3,2,'일 부족')");
         db.close();
     }*/
 
@@ -399,18 +395,18 @@ public class ProgressbarFragment extends Fragment {
     //tb_dailybalance 설정
     private void setProgressbar(View v, DBHelper helper) {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-        double sleep = 0, work = 0, study = 0, exercise = 0, leisure = 0, other = 0;
+        double rest = 0, work = 0, study = 0, exercise = 0, leisure = 0, other = 0;
         String week = getWeek(mParam1);
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from tb_dailybalance where date=?", new String[]{mParam1});
-        if(cursor.getCount()==0) {
-            db.execSQL("insert into tb_dailybalance (date, week, sleep, work, study, exercise, leisure, other) values (?,?,0,0,0,0,0,0)",
+        if (cursor.getCount() == 0) {
+            db.execSQL("insert into tb_dailybalance (date, week, rest, work, study, exercise, leisure, other) values (?,?,0,0,0,0,0,0)",
                     new String[]{mParam1, week});
         }
         Cursor cursor2 = db.rawQuery("select * from tb_timeline where date=?", new String[]{mParam1});
-        while(cursor2.moveToNext()) {
+        while (cursor2.moveToNext()) {
             String category = cursor2.getString(cursor2.getColumnIndex("category"));
-            String starttime =  cursor2.getString(cursor2.getColumnIndex("starttime"));
+            String starttime = cursor2.getString(cursor2.getColumnIndex("starttime"));
             String endtime = cursor2.getString(cursor2.getColumnIndex("endtime"));
             if (endtime == null) {
                 try {
@@ -424,26 +420,26 @@ public class ProgressbarFragment extends Fragment {
             }
             double playtime = getTime(starttime, endtime);
             switch (category) {
-                case "sleep":
-                    sleep += playtime;
-                    break ;
+                case "rest":
+                    rest += playtime;
+                    break;
                 case "work":
                     work += playtime;
-                    break ;
+                    break;
                 case "study":
                     study += playtime;
-                    break ;
+                    break;
                 case "exercise":
                     exercise += playtime;
-                    break ;
+                    break;
                 case "leisure":
                     leisure += playtime;
-                    break ;
+                    break;
                 default:
                     other += playtime;
             }
         }
-        String sql = "update tb_dailybalance set sleep=" + sleep + ", work=" + work + ", study=" + study
+        String sql = "update tb_dailybalance set rest=" + rest + ", work=" + work + ", study=" + study
                 + ", exercise=" + exercise + ", leisure=" + leisure + ", other=" + other + " where date=\"" + mParam1 + "\"";
         db.execSQL(sql);
         db.close();
@@ -463,7 +459,7 @@ public class ProgressbarFragment extends Fragment {
             e.printStackTrace();
         }
         double time = (end.getTime() - start.getTime()) / 1000;
-        time = Math.round(time/3600*100)/100.0;
+        time = Math.round(time / 3600 * 100) / 100.0;
 
         return time;
     }
