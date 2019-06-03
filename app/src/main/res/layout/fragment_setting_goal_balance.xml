@@ -47,10 +47,10 @@ tools:context=".SettingGoalBalanceFragment">
         android:background="#888888" >
 
         <View
-            android:id="@+id/sleep"
+            android:id="@+id/rest"
             android:layout_width="320px"
             android:layout_height="wrap_content"
-            android:background="@color/sleep"
+            android:background="@color/rest"
             android:visibility="visible" />
 
         <View
@@ -58,7 +58,7 @@ tools:context=".SettingGoalBalanceFragment">
             android:layout_width="320px"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
-            android:layout_toRightOf="@id/sleep"
+            android:layout_toRightOf="@id/rest"
             android:background="@color/work" />
 
         <View
@@ -86,7 +86,7 @@ tools:context=".SettingGoalBalanceFragment">
     </RelativeLayout> //게이지 레이아웃
 
     <RelativeLayout
-        android:id="@+id/sleepLayout"
+        android:id="@+id/restLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/relativeLayout" >
@@ -105,7 +105,7 @@ tools:context=".SettingGoalBalanceFragment">
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/sleepCount"
+            android:id="@+id/restCount"
             android:layout_width="60dp"
             android:layout_height="43dp"
             android:layout_alignLeft="@+id/textView1-1"
@@ -132,7 +132,7 @@ tools:context=".SettingGoalBalanceFragment">
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/sleepMinus"
+            android:id="@+id/restMinus"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:layout_alignParentLeft="true"
@@ -144,7 +144,7 @@ tools:context=".SettingGoalBalanceFragment">
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/sleepPlus"
+            android:id="@+id/restPlus"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:layout_alignParentLeft="true"
@@ -161,7 +161,7 @@ tools:context=".SettingGoalBalanceFragment">
         android:id="@+id/workLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/sleepLayout">
+        android:layout_below="@id/restLayout">
 
         <TextView
             android:id="@+id/textView2-1"
