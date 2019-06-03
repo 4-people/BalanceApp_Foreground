@@ -17,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/MainTheme"
         tools:replace="android:allowBackup">
-        <activity android:name=".ResultActivity"></activity>
         <receiver
             android:name="com.example.MyAlarm"
             android:enabled="true"
