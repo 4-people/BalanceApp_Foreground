@@ -239,8 +239,8 @@ public class WeekStatFragment extends Fragment {
 
             axisX.setValues(axisValues);
 
-            axisX.setTextColor(Color.BLACK);
-            axisY.setTextColor(Color.BLACK);
+            axisX.setTextColor(getResources().getColor(R.color.black));
+            axisY.setTextColor(getResources().getColor(R.color.black));
 
             data.setAxisXBottom(axisX);
             data.setAxisYLeft(axisY);

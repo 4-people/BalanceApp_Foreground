@@ -122,7 +122,6 @@ public class MonthStatFragment extends Fragment {
             axisValues.add(i, new AxisValue(i).setLabel(Integer.toString(i+1)));
             columns.add(null);
         }
-        System.out.println("★getcount:"+cursor.getCount());
         for (int i=0; i<dayNum; i++) {
             values = new ArrayList<SubcolumnValue>();
             if (cursor.moveToNext()){
@@ -136,7 +135,6 @@ public class MonthStatFragment extends Fragment {
             }
             Column column = new Column(values);
             columns.set(i,column);
-            System.out.println("☆☆☆☆☆testing "+i);
         }
 
 
@@ -151,8 +149,8 @@ public class MonthStatFragment extends Fragment {
 
             axisX.setValues(axisValues);
 
-            axisX.setTextColor(Color.BLACK);
-            axisY.setTextColor(Color.BLACK);
+            axisX.setTextColor(getResources().getColor(R.color.black));
+            axisY.setTextColor(getResources().getColor(R.color.black));
 
             data.setAxisXBottom(axisX);
             data.setAxisYLeft(axisY);
