@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.programmingknowledge.mybalance_v11">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- This permission is need to check the internet connection state ! -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +18,15 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
         <activity android:name=".ResultActivity"></activity>
-
+        <receiver
+            android:name="com.example.MyAlarm"
+            android:enabled="true"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action android:name="LocationBroadcast" />
+            </intent-filter>
+        </receiver>
         <activity
             android:name= ".SplashActivity"
             android:theme="@style/SplashTheme"
@@ -29,7 +41,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCzIbfWIeAUYr9Uox5iyo_sKUwaSFD7fXY" />
+            android:value="AIzaSyALr88wG8gkDB_iGiy6YhugN87euZgGIQA" />
 
         <activity
             android:name=".MainActivity"
