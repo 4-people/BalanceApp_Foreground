@@ -86,7 +86,7 @@ public class TimelineFragment extends Fragment {
         myListView.setAdapter(myAdapter);
 
         //길게 눌렀을때 수정/삭제
-        String[] s = { "수면", "일", "공부", "운동", "여가", "기타"};
+        String[] s = { "휴식", "일", "공부", "운동", "여가", "기타"};
         final ArrayAdapter<String> adp = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item, s);
         adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -157,7 +157,7 @@ public class TimelineFragment extends Fragment {
                         String starttime = transFormat.format(row.getDate());
                         String sCategory = category.getSelectedItem().toString();
                         switch (sCategory) {
-                            case "수면":
+                            case "휴식":
                                 sCategory = "rest";
                                 break;
                             case "일":
@@ -209,7 +209,7 @@ public class TimelineFragment extends Fragment {
             case "rest":
                 categoryNum = 0;
                 color = getResources().getColor(R.color.rest);
-                cg = "수면";
+                cg = "휴식";
                 break;
             case "work":
                 categoryNum = 1;
