@@ -13,6 +13,17 @@
 
     </style>
 
+    <style name="MainTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:state_window_focused">true</item>
+
+
+    </style>
+
     <style name="RadioButton">
         <item name="android:textColor">@drawable/button_text_color</item>
         <item name="android:minHeight">33dp</item>
