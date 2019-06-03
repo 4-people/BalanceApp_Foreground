@@ -9,6 +9,23 @@ android:layout_height="match_parent"
 app:layout_behavior="@string/appbar_scrolling_view_behavior"
 tools:context=".GoalBalanceListFragment">
 
+    <View
+        android:id="@+id/gradientView"
+        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gradient_bg">
+    </View>
+    <TextView
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true"
+        android:text = "나의 목표 밸런스"
+        android:textColor="@color/white" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/AddGoalBalance"
@@ -18,16 +35,20 @@ tools:context=".GoalBalanceListFragment">
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="22dp"
+        android:background="@drawable/plus"
         android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/plus"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintStart_toStartOf="@+id/linear"
         app:layout_constraintTop_toTopOf="@+id/linear" />
 
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_below="@id/gradientView"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

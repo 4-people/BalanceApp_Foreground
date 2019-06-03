@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new StatisticsFragment();
                             break;
                         case R.id.nav_settings:
-                            selectedFragment = new SettingsFragment();
+                            selectedFragment = new GoalBalanceListFragment();
                             break;
 
                     }

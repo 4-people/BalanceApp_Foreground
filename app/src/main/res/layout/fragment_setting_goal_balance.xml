@@ -7,34 +7,23 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".SettingGoalBalanceFragment">
 
-
-    <Toolbar
-        android:id="@+id/toolbar"
+    <View
+        android:id="@+id/gradientView"
+        android:layout_height="70dp"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
+        android:orientation="horizontal"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp">
-
-        <TextView
-            android:id="@+id/toolbarTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:ellipsize="end"
-            android:gravity="left"
-            android:maxLines="1"
-            android:text="목표 밸런스 설정"
-            android:paddingLeft="30dp"
-            android:textSize="20sp"
-            android:textAppearance="@android:style/TextAppearance.WindowTitle"
-            android:visibility="visible" />
-    </Toolbar>
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gradient_bg">
+    </View>
+    <TextView
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true"
+        android:text = "목표 밸런스 설정"
+        android:textColor="@color/white" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -42,7 +31,7 @@ tools:context=".SettingGoalBalanceFragment">
         android:layout_height="30dp"
         android:layout_marginBottom="25dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/gradientView"
         android:layout_marginTop="20dp"
         android:background="#888888" >
 
@@ -577,7 +566,7 @@ tools:context=".SettingGoalBalanceFragment">
         android:textSize="23sp"
         android:textColor="@color/white"
         android:gravity="center"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/gradient_bg"
         android:foreground="?attr/selectableItemBackground"
         android:clickable="true"
         android:onClick="setBalance"

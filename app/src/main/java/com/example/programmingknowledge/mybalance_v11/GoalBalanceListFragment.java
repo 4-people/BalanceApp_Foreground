@@ -149,7 +149,7 @@ public class GoalBalanceListFragment extends Fragment {
         // 모두 설정되어있으면 버튼 비활성화
         if (temp.contains("월") && temp.contains("화") && temp.contains("수") && temp.contains("목") &&
                 temp.contains("금") && temp.contains("토") && temp.contains("일"))
-            fab.setEnabled(false);
+            fab.hide();
 
         fab.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

@@ -39,13 +39,13 @@ public class HomeFragment extends Fragment {
         final DBHelper helper = new DBHelper(container.getContext());
 
         //db insert 버튼
-        button = (Button)view.findViewById(R.id.insert);
-        button.setOnClickListener(new View.OnClickListener() {
+        //button = (Button)view.findViewById(R.id.insert);
+        /*button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setData(v, helper);
             }
-        });
+        });*/
 
         //페이지 갯수 세기
         SQLiteDatabase db = helper.getWritableDatabase();
