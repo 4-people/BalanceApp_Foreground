@@ -158,7 +158,7 @@ public class TimelineFragment extends Fragment {
                         String sCategory = category.getSelectedItem().toString();
                         switch (sCategory) {
                             case "수면":
-                                sCategory = "sleep";
+                                sCategory = "rest";
                                 break;
                             case "일":
                                 sCategory = "work";
@@ -206,9 +206,9 @@ public class TimelineFragment extends Fragment {
         int color;
         String cg;
         switch (category) {
-            case "sleep":
+            case "rest":
                 categoryNum = 0;
-                color = getResources().getColor(R.color.sleep);
+                color = getResources().getColor(R.color.rest);
                 cg = "수면";
                 break;
             case "work":

@@ -23,6 +23,8 @@ import android.widget.LinearLayout;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 import lecho.lib.hellocharts.model.Line;
 
 
@@ -37,7 +39,7 @@ public class GoalBalanceListFragment extends Fragment {
         //db읽기
         DBHelper helper = new DBHelper(container.getContext());
         SQLiteDatabase db = helper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select sleep, work, study, exercise, leisure, other, week from tb_goalbalance", null);
+        Cursor cursor = db.rawQuery("select rest, work, study, exercise, leisure, other, week from tb_goalbalance", null);
 
 
         //DB에 데이터가 있으면
@@ -104,8 +106,8 @@ public class GoalBalanceListFragment extends Fragment {
                 layout.addView(goalBalanceCardView);
 
                 //게이지바 설정
-                View sleep = (View)goalBalanceCardView.findViewById(R.id.sleep);
-                sleep.setLayoutParams(new LinearLayout.LayoutParams((int)Double.parseDouble(cursor.getString(0))*40, ViewGroup.LayoutParams.MATCH_PARENT));
+                View rest = (View)goalBalanceCardView.findViewById(R.id.rest);
+                rest.setLayoutParams(new LinearLayout.LayoutParams((int)Double.parseDouble(cursor.getString(0))*40, ViewGroup.LayoutParams.MATCH_PARENT));
                 View work = (View)goalBalanceCardView.findViewById(R.id.work);
                 work.setLayoutParams(new LinearLayout.LayoutParams((int)Double.parseDouble(cursor.getString(1))*40, ViewGroup.LayoutParams.MATCH_PARENT));
                 View study = (View)goalBalanceCardView.findViewById(R.id.study);
@@ -127,10 +129,28 @@ public class GoalBalanceListFragment extends Fragment {
             }
         }
 
-
+        Cursor cursor2 = db.rawQuery("select week from tb_goalbalance", null);
+        ArrayList<String> yo = new ArrayList<>();
+        while(cursor2.moveToNext()) {
+            String week = cursor2.getString(cursor2.getColumnIndex("week"));
+            String[] temp = week.split("\\s");
+            for (String s : temp) {
+                yo.add(s);
+            }
+        }
+        String temp = "";
+        for (String s : yo) {
+            temp += s;
+        }
 
         //목표 밸런스 설정창으로 이동(액션버튼 눌렀을때)
         FloatingActionButton fab = (FloatingActionButton) root.findViewById(R.id.AddGoalBalance);
+
+        // 모두 설정되어있으면 버튼 비활성화
+        if (temp.contains("월") && temp.contains("화") && temp.contains("수") && temp.contains("목") &&
+                temp.contains("금") && temp.contains("토") && temp.contains("일"))
+            fab.setEnabled(false);
+
         fab.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Fragment fragment = new SettingGoalBalanceFragment();

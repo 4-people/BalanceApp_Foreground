@@ -43,11 +43,11 @@ import static java.lang.Integer.parseInt;
 
 
 public class SettingGoalBalanceFragment extends Fragment implements View.OnClickListener {
-    TextView sleepCountTv, workCountTv, studyCountTv, exerciseCountTv, leisureCountTv, othersCountTv;
-    double sleepCount, workCount, studyCount, exerciseCount, leisureCount, others;
-    Button sleepMinus, workMinus, studyMinus, exerciseMinus, leisureMinus;
-    Button sleepPlus, workPlus, studyPlus, exercisePlus, leisurePlus;
-    View sleepView, workView, studyView, exerciseView, leisureView;
+    TextView restCountTv, workCountTv, studyCountTv, exerciseCountTv, leisureCountTv, othersCountTv;
+    double restCount, workCount, studyCount, exerciseCount, leisureCount, others;
+    Button restMinus, workMinus, studyMinus, exerciseMinus, leisureMinus;
+    Button restPlus, workPlus, studyPlus, exercisePlus, leisurePlus;
+    View restView, workView, studyView, exerciseView, leisureView;
     CheckBox checkMon, checkTue, checkWed, checkThu, checkFri, checkSat, checkSun;
     ArrayList<CheckBox> checkBoxArrayList = new ArrayList<CheckBox>();
     String checkedWeek = "";
@@ -62,8 +62,8 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
 
         InitializeView(root, helper);
 
-        sleepMinus.setOnClickListener(this);
-        sleepPlus.setOnClickListener(this);
+        restMinus.setOnClickListener(this);
+        restPlus.setOnClickListener(this);
         workMinus.setOnClickListener(this);
         workPlus.setOnClickListener(this);
         studyMinus.setOnClickListener(this);
@@ -92,8 +92,8 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
         MyOnClick(v);
 
         //버튼 누르고있으면 반복 실행되게 하는 repeat메소드
-        this.repeat(sleepMinus);
-        this.repeat(sleepPlus);
+        this.repeat(restMinus);
+        this.repeat(restPlus);
         this.repeat(workMinus);
         this.repeat(workPlus);
         this.repeat(studyMinus);
@@ -106,11 +106,11 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
 
 
     public void InitializeView(View root, DBHelper helper) {
-        sleepCountTv = (TextView) root.findViewById(R.id.sleepCount);
-        sleepCount = parseInt(sleepCountTv.getText().toString());
-        sleepMinus = (Button) root.findViewById(R.id.sleepMinus);
-        sleepPlus = (Button) root.findViewById(R.id.sleepPlus);
-        sleepView = (View) root.findViewById(R.id.sleep);
+        restCountTv = (TextView) root.findViewById(R.id.restCount);
+        restCount = parseInt(restCountTv.getText().toString());
+        restMinus = (Button) root.findViewById(R.id.restMinus);
+        restPlus = (Button) root.findViewById(R.id.restPlus);
+        restView = (View) root.findViewById(R.id.rest);
 
         workCountTv = (TextView) root.findViewById(R.id.workCount);
         workCount = parseInt(workCountTv.getText().toString());
@@ -191,24 +191,24 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
 
 
     public void MyOnClick(View view) {
-        others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+        others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
         switch (view.getId()) {
-            case R.id.sleepMinus:
-                if (sleepCount == 0) break;
-                sleepCount -= 0.5;
-                sleepCountTv.setText("" + sleepCount);
-                sleepView.getLayoutParams().width = (int) (sleepCount * 40);
-                sleepView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+            case R.id.restMinus:
+                if (restCount == 0) break;
+                restCount -= 0.5;
+                restCountTv.setText("" + restCount);
+                restView.getLayoutParams().width = (int) (restCount * 40);
+                restView.requestLayout();
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
-            case R.id.sleepPlus:
+            case R.id.restPlus:
                 if (others == 0) break;
-                sleepCount += 0.5;
-                sleepCountTv.setText("" + sleepCount);
-                sleepView.getLayoutParams().width = (int) (sleepCount * 40);
-                sleepView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                restCount += 0.5;
+                restCountTv.setText("" + restCount);
+                restView.getLayoutParams().width = (int) (restCount * 40);
+                restView.requestLayout();
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
 
@@ -218,7 +218,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 workCountTv.setText("" + workCount);
                 workView.getLayoutParams().width = (int) (workCount * 40);
                 workView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
             case R.id.workPlus:
@@ -227,7 +227,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 workCountTv.setText("" + workCount);
                 workView.getLayoutParams().width = (int) (workCount * 40);
                 workView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
 
@@ -237,7 +237,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 studyCountTv.setText("" + studyCount);
                 studyView.getLayoutParams().width = (int) (studyCount * 40);
                 studyView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
             case R.id.studyPlus:
@@ -246,7 +246,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 studyCountTv.setText("" + studyCount);
                 studyView.getLayoutParams().width = (int) (studyCount * 40);
                 workView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
 
@@ -256,7 +256,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 exerciseCountTv.setText("" + exerciseCount);
                 exerciseView.getLayoutParams().width = (int) (exerciseCount * 40);
                 exerciseView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
             case R.id.exercisePlus:
@@ -265,7 +265,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 exerciseCountTv.setText("" + exerciseCount);
                 exerciseView.getLayoutParams().width = (int) (exerciseCount * 40);
                 workView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
 
@@ -275,7 +275,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 leisureCountTv.setText("" + leisureCount);
                 leisureView.getLayoutParams().width = (int) (leisureCount * 40);
                 leisureView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
             case R.id.leisurePlus:
@@ -284,7 +284,7 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 leisureCountTv.setText("" + leisureCount);
                 leisureView.getLayoutParams().width = (int) (leisureCount * 40);
                 workView.requestLayout();
-                others = 24 - (sleepCount + workCount + studyCount + exerciseCount + leisureCount);
+                others = 24 - (restCount + workCount + studyCount + exerciseCount + leisureCount);
                 othersCountTv.setText("" + others);
                 break;
         }
@@ -314,8 +314,8 @@ public class SettingGoalBalanceFragment extends Fragment implements View.OnClick
                 checkedWeek += " ";
             }
         }
-        db.execSQL("insert into tb_goalbalance (sleep, work, study, exercise, leisure, other, week) values (" +
-                sleepCount + "," + workCount + "," + studyCount + "," + exerciseCount + "," + leisureCount + "," + others + ",'" + checkedWeek + "')");
+        db.execSQL("insert into tb_goalbalance (rest, work, study, exercise, leisure, other, week) values (" +
+                restCount + "," + workCount + "," + studyCount + "," + exerciseCount + "," + leisureCount + "," + others + ",'" + checkedWeek + "')");
         db.close();
 
         //onBackPressed();

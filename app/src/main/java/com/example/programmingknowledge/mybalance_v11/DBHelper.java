@@ -24,13 +24,13 @@ public class DBHelper extends SQLiteOpenHelper {
         //목표밸런스
         String goalbalanceSQL = "CREATE TABLE tb_goalbalance "+
                 "(id INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "sleep REAL,"+"work REAL,"+"study REAL,"+"exercise REAL,"+"leisure REAL,"+"other REAL,"+"week TEXT);";
+                "rest REAL,"+"work REAL,"+"study REAL,"+"exercise REAL,"+"leisure REAL,"+"other REAL,"+"week TEXT);";
         db.execSQL(goalbalanceSQL);
 
         //일별 테이블
         String daySQL = "CREATE TABLE tb_dailybalance "+
                 "(id INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "date TEXT,"+ "week TEXT,"+ "sleep REAL,"+"work REAL,"+"study REAL,"+"exercise REAL,"+"leisure REAL,"+"other REAL);";
+                "date TEXT,"+ "week TEXT,"+ "rest REAL,"+"work REAL,"+"study REAL,"+"exercise REAL,"+"leisure REAL,"+"other REAL);";
         db.execSQL(daySQL);
 
         //현재 측정 테이블

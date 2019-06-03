@@ -125,7 +125,7 @@ public class MonthStatFragment extends Fragment {
         for (int i=0; i<dayNum; i++) {
             values = new ArrayList<SubcolumnValue>();
             if (cursor.moveToNext()){
-                    values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("sleep")), getResources().getColor(R.color.sleep)));
+                    values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("rest")), getResources().getColor(R.color.rest)));
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("work")), getResources().getColor(R.color.work)));
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("study")), getResources().getColor(R.color.study)));
                     values.add(new SubcolumnValue(cursor.getFloat(cursor.getColumnIndex("exercise")), getResources().getColor(R.color.exercise)));
@@ -165,22 +165,22 @@ public class MonthStatFragment extends Fragment {
     private void setAverageTime(View rootView, SQLiteDatabase db){
         Cursor cursor = db.rawQuery("select * from tb_dailybalance where date between '"+date+"' and '"+lastDay+"'",null);
 
-        TextView sleepAverageValue = rootView.findViewById(R.id.sleepAverageValue);
+        TextView restAverageValue = rootView.findViewById(R.id.restAverageValue);
         TextView workAverageValue = rootView.findViewById(R.id.workAverageValue);
         TextView studyAverageValue = rootView.findViewById(R.id.studyAverageValue);
         TextView exerciseAverageValue = rootView.findViewById(R.id.exerciseAverageValue);
         TextView leisureAverageValue = rootView.findViewById(R.id.leisureAverageValue);
         TextView othersAverageValue = rootView.findViewById(R.id.othersAverageValue);
-        float sleep=0,work=0,study=0,exercise=0,leisure=0,others=0;
+        float rest=0,work=0,study=0,exercise=0,leisure=0,others=0;
         while(cursor.moveToNext()){
-            sleep += cursor.getFloat(cursor.getColumnIndex("sleep"));
+            rest += cursor.getFloat(cursor.getColumnIndex("rest"));
             work += cursor.getFloat(cursor.getColumnIndex("work"));
             study += cursor.getFloat(cursor.getColumnIndex("study"));
             exercise += cursor.getFloat(cursor.getColumnIndex("exercise"));
             leisure += cursor.getFloat(cursor.getColumnIndex("leisure"));
             others += cursor.getFloat(cursor.getColumnIndex("other"));
         }
-        sleepAverageValue.setText(getTime(sleep/dayNum));
+        restAverageValue.setText(getTime(rest/dayNum));
         workAverageValue.setText(getTime(work/dayNum));
         studyAverageValue.setText(getTime(study/dayNum));
         exerciseAverageValue.setText(getTime(exercise/dayNum));

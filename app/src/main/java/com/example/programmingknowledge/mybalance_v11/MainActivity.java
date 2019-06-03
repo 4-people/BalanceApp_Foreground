@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pi = PendingIntent.getBroadcast(this.getApplicationContext(),1,intent,0);
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
         Log.d(TAG,"30분마다 한번씩 팝업");
-        am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),1000*60*30,pi);
+        am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),1000*60*2,pi);
 
         startMyService();
 
