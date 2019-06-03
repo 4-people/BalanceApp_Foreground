@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#d698b9</color>
-    <color name="colorPrimaryDark">#AB93C9</color>
+    <color name="colorPrimary">#ff6ac1</color>
+    <color name="colorPrimaryDark">#f35fb6</color>
+    <color name="colorViewBackground">#FFFFFF</color>
+    <color name="colorFont">#5c506a</color>
     <color name="colorAccent">#D81B60</color>
     <color name="others">#888888</color>
     <color name="rest">#AB93C9</color>
@@ -9,7 +11,10 @@
     <color name="study">#eda1ab</color>
     <color name="exercise">#ffbea3</color>
     <color name="leisure">#FCECA6</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gradient1">#ff6ac1</color>
+    <color name="gradient2">#ce6aff</color>
+    <color name="gradient3">#7c62ff</color>
 
-    <color name="radio_button_selected_color">#ff33b5e5</color>
-    <color name="radio_button_unselected_color">@android:color/transparent</color>
 </resources>

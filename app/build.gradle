@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.programmingknowledge.mybalance_v11"
-        minSdkVersion 17 // 수정(타임라인)
+        minSdkVersion 21 // 수정(타임라인)
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"

@@ -7,31 +7,50 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".SettingGoalBalanceFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-        android:text="목표 밸런스 설정"
-        android:textSize="27sp"
-    />
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/toolbarTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLines="1"
+            android:text="목표 밸런스 설정"
+            android:paddingLeft="30dp"
+            android:textSize="20sp"
+            android:textAppearance="@android:style/TextAppearance.WindowTitle"
+            android:visibility="visible" />
+    </Toolbar>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="960px"
-        android:layout_height="45dp"
+        android:layout_height="30dp"
         android:layout_marginBottom="25dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/textView"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="20dp"
         android:background="#888888" >
 
         <View
-            android:id="@+id/rest"
+            android:id="@+id/sleep"
             android:layout_width="320px"
             android:layout_height="wrap_content"
-            android:background="#414766"
+            android:background="@color/sleep"
             android:visibility="visible" />
 
         <View
@@ -39,22 +58,22 @@ tools:context=".SettingGoalBalanceFragment">
             android:layout_width="320px"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
-            android:layout_toRightOf="@id/rest"
-            android:background="#F98583" />
+            android:layout_toRightOf="@id/sleep"
+            android:background="@color/work" />
 
         <View
             android:id="@+id/study"
             android:layout_width="120px"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/work"
-            android:background="#B4CC65" />
+            android:background="@color/study" />
 
         <View
             android:id="@+id/exercise"
             android:layout_width="80px"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/study"
-            android:background="#FBB06D" />
+            android:background="@color/exercise" />
 
         <View
             android:id="@+id/leisure"
@@ -62,12 +81,12 @@ tools:context=".SettingGoalBalanceFragment">
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_toRightOf="@id/exercise"
-            android:background="#C7ACEE" />
+            android:background="@color/leisure" />
 
     </RelativeLayout> //게이지 레이아웃
 
     <RelativeLayout
-        android:id="@+id/restLayout"
+        android:id="@+id/sleepLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/relativeLayout" >
@@ -86,7 +105,7 @@ tools:context=".SettingGoalBalanceFragment">
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/restCount"
+            android:id="@+id/sleepCount"
             android:layout_width="60dp"
             android:layout_height="43dp"
             android:layout_alignLeft="@+id/textView1-1"
@@ -113,7 +132,7 @@ tools:context=".SettingGoalBalanceFragment">
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/restMinus"
+            android:id="@+id/sleepMinus"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:layout_alignParentLeft="true"
@@ -125,7 +144,7 @@ tools:context=".SettingGoalBalanceFragment">
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/restPlus"
+            android:id="@+id/sleepPlus"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:layout_alignParentLeft="true"
@@ -142,7 +161,7 @@ tools:context=".SettingGoalBalanceFragment">
         android:id="@+id/workLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/restLayout">
+        android:layout_below="@id/sleepLayout">
 
         <TextView
             android:id="@+id/textView2-1"
@@ -553,12 +572,12 @@ tools:context=".SettingGoalBalanceFragment">
     <TextView
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:text="밸런스 설정하기"
         android:textSize="23sp"
-        android:textColor="#ff000000"
+        android:textColor="@color/white"
         android:gravity="center"
-        android:background="#c8c8c8"
+        android:background="@color/colorPrimary"
         android:foreground="?attr/selectableItemBackground"
         android:clickable="true"
         android:onClick="setBalance"

@@ -9,12 +9,12 @@
         android:id="@+id/segmented2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         segmentedgroup:sc_border_width="1dp"
         segmentedgroup:sc_corner_radius="10dp"
-        segmentedgroup:sc_tint_color="@color/colorPrimaryDark"
+        segmentedgroup:sc_tint_color="@color/colorPrimary"
         segmentedgroup:sc_checked_text_color="#FFFFFF">
 
         <RadioButton
@@ -36,9 +36,11 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager_week"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="585dp">
+        android:layout_height="585dp"
+        android:layout_below="@+id/segmented2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp">
 
     </android.support.v4.view.ViewPager>
 

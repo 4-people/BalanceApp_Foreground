@@ -2,41 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto">
-
-    <!--info.hoang8f.android.segmented.SegmentedGroup
-        android:id="@+id/segmented2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        segmentedgroup:sc_border_width="1dp"
-        segmentedgroup:sc_corner_radius="10dp"
-        segmentedgroup:sc_tint_color="#00574B"
-        segmentedgroup:sc_checked_text_color="#FFFFFF">
-
-        <RadioButton
-            android:id="@+id/button21"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="주별"
-            style="@style/RadioButton" />
-
-        <RadioButton
-            android:id="@+id/button22"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="월별"
-            style="@style/RadioButton" />
-    </info.hoang8f.android.segmented.SegmentedGroup-->
+    android:gravity="center">
 
     <RelativeLayout
         android:id="@+id/chart_and_avg_viewpager_layout"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/segmented2">
@@ -65,149 +34,231 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/chart"
-            android:textSize="20dp"
-            android:layout_margin="10dp"
             android:layout_centerHorizontal="true"
-            android:text="이주의 평균 소비시간" />
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundedview"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:text="이주의 평균 소비시간"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <RelativeLayout
             android:id="@+id/averageLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="390dp"
+            android:layout_height="110dp"
             android:layout_below="@+id/averageNotice"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
+
+
+            <View
+                android:id="@+id/restColor"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:background="@color/rest" />
 
             <TextView
                 android:id="@+id/restAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/restColor"
                 android:text="잠"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/restAverageValue"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="30dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/restAverage"
-                android:text="00:00:00"
-                android:textSize="20dp" />
+                android:text="00시간 00분"
+                android:textSize="20dp"/>
+
+
+            <View
+                android:id="@+id/workColor"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/restColor"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="0dp"
+                android:background="@color/work" />
 
             <TextView
                 android:id="@+id/workAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/restAverage"
-                android:layout_marginStart="0dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
+                android:layout_toEndOf="@+id/workColor"
                 android:text="일"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/workAverageValue"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/restAverageValue"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/workAverage"
-                android:text="00:00:00"
+                android:text="00시간 00분"
                 android:textSize="20dp" />
+
+
+            <View
+                android:id="@+id/studyColor"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/workColor"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="0dp"
+                android:background="@color/study" />
 
             <TextView
                 android:id="@+id/studyAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/workAverage"
-                android:layout_marginStart="0dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
+                android:layout_toEndOf="@+id/studyColor"
                 android:text="공부"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/studyAverageValue"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/workAverageValue"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/studyAverage"
-                android:text="00:00:00"
+                android:text="00시간 00분"
                 android:textSize="20dp" />
+
+            <View
+                android:id="@+id/exerciseColor"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@+id/restAverageValue"
+                android:background="@color/exercise" />
 
             <TextView
                 android:id="@+id/exerciseAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:layout_toEndOf="@id/restAverageValue"
+                android:layout_toEndOf="@+id/exerciseColor"
                 android:text="운동"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/exerciseAverageValue"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/exerciseAverage"
-                android:text="00:00:00"
+                android:text="00시간 00분"
                 android:textSize="20dp" />
+
+
+            <View
+                android:id="@+id/leisureColor"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/exerciseColor"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@+id/workAverageValue"
+                android:background="@color/leisure" />
 
             <TextView
                 android:id="@+id/leisureAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/exerciseAverage"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:layout_toEndOf="@id/restAverageValue"
+                android:layout_toEndOf="@+id/leisureColor"
                 android:text="여가"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/leisureAverageValue"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/exerciseAverageValue"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/leisureAverage"
-                android:text="00:00:00"
+                android:text="00시간 00분"
                 android:textSize="20dp" />
+
+
+            <View
+                android:id="@+id/othersColor"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@+id/leisureColor"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toEndOf="@+id/studyAverageValue"
+                android:background="@color/others" />
 
             <TextView
                 android:id="@+id/othersAverage"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/leisureAverage"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:layout_toEndOf="@id/restAverageValue"
+                android:layout_toEndOf="@+id/othersColor"
                 android:text="기타"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/othersAverageValue"
-                android:layout_width="100dp"
+                android:layout_width="110dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/leisureAverageValue"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_toEndOf="@+id/othersAverage"
-                android:text="00:00:00"
+                android:text="00시간 00분"
                 android:textSize="20dp" />
         </RelativeLayout>
 
