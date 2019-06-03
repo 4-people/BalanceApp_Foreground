@@ -21,17 +21,19 @@
         <TextView
             android:id="@+id/today"
             android:layout_width="wrap_content"
-            android:layout_height="62dp"
+            android:layout_height="60dp"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/text"
             android:layout_width="wrap_content"
-            android:layout_height="62dp"
+            android:layout_height="60dp"
             android:text="의 밸런스"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
@@ -42,7 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/linearlayout6"
         android:orientation="horizontal"
-        android:gravity="center" >
+        android:gravity="center"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/textView3"

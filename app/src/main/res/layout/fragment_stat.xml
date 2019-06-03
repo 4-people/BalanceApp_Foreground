@@ -75,7 +75,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/restColor"
-                android:text="잠"
+                android:text="휴식"
                 android:textSize="20dp" />
 
             <TextView
