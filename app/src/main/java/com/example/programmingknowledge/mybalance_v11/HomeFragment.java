@@ -43,14 +43,17 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         final DBHelper helper = new DBHelper(container.getContext());
 
-        //db insert 버튼
-        //button = (Button)view.findViewById(R.id.insert);
-        /*button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setData(v, helper);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor3 = db.rawQuery("select distinct date from tb_timeline", null);
+        while(cursor3.moveToNext()) {
+            String date = cursor3.getString(cursor3.getColumnIndex("date"));
+            Cursor cursor2 = db.rawQuery("select * from tb_dailybalance where date=?",  new String[]{date});
+            //특정 날짜의 row가 없으면 추가
+            if(cursor2.getCount()==0) {
+                db.execSQL("insert into tb_dailybalance (date, week, rest, work, study, exercise, leisure, other) values (?,?,0,0,0,0,0,0)",
+                        new String[]{date, getWeek(date)});
             }
-        });*/
+        }
 
         //popup
         btn_map = (FloatingActionButton)view.findViewById(R.id.addTimelineByApp);
@@ -104,7 +107,7 @@ public class HomeFragment extends Fragment {
 
 
         //페이지 갯수 세기
-        SQLiteDatabase db = helper.getWritableDatabase();
+        //SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select count(distinct date) from tb_timeline",null);
         cursor.moveToFirst();
         page = cursor.getInt(0);
