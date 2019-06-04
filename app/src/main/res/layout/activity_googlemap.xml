@@ -18,7 +18,7 @@
             android:textSize="20sp"
             android:textColor="#fff"
             android:gravity="center"
-            android:background="@android:color/holo_purple"
+            android:background="@drawable/gradient_bg"
             android:layout_width="match_parent"
             android:layout_height="53dp" />
     </LinearLayout>

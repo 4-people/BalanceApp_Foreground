@@ -25,6 +25,22 @@
         android:layout_alignParentRight="true"
         android:background="@drawable/progressbar"/>
 
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addTimelineByApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/plus"
+        android:clickable="true"
+        android:src="@drawable/plus"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/linear"
+        app:layout_constraintTop_toTopOf="@+id/linear" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"

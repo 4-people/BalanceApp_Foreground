@@ -1,5 +1,6 @@
 package com.example.programmingknowledge.mybalance_v11;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.GoogleMapAPI.GoogleMapActivity;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -30,10 +33,12 @@ public class HomeFragment extends Fragment {
     Button button;
     Button button2;
     int page;
+    //popup
+    FloatingActionButton btn_map;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         final DBHelper helper = new DBHelper(container.getContext());
@@ -46,6 +51,57 @@ public class HomeFragment extends Fragment {
                 setData(v, helper);
             }
         });*/
+
+        //popup
+        btn_map = (FloatingActionButton)view.findViewById(R.id.addTimelineByApp);
+        btn_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(container.getContext(), GoogleMapActivity.class);
+
+                startActivityForResult(intent, 1);
+
+
+
+//                    startActivity(new Intent(container.getContext(),GoogleMapActivity.class ));
+//                    Dialog dialog = new Dialog(container.getContext());
+//
+//                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                    dialog.setContentView(R.layout.activity_googlemap);
+//                    WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+//
+//                    params.width=700;
+//                    params.height=600;
+//                    dialog.getWindow().setAttributes(params);
+//                    dialog.show();
+
+//                    AlertDialog.Builder ad = new AlertDialog.Builder(container.getContext());
+//                    ad.setIcon(R.mipmap.ic_launcher);
+//                    ad.setTitle("제목");
+//                    ad.setMessage("하영이는 존예?");
+//
+//                    final EditText et = new EditText(container.getContext());
+//                    ad.setView(et);
+//                    ad.setPositiveButton("ㅇㅈ", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            String result = et.getText().toString();
+//                            text_map.setText(result);
+//                            dialog.dismiss();
+//                        }
+//                    });
+//
+//                    ad.setNegativeButton("ㅇㅇㅇㅇㅇㅇ[변화x", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                        }
+//                    });
+//                    ad.show();
+            }
+        });
+
 
         //페이지 갯수 세기
         SQLiteDatabase db = helper.getWritableDatabase();
