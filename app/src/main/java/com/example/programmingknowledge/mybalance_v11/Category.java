@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Category {
-    public static String[] s = {"library", "school"};
+    public static String[] s = {"library", "school", "university"};
     public static String[] e = {"gym", "park"};
     public static String[] l = {"amusement_park",
             "aquarium",
