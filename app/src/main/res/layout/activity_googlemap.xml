@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/AppTheme"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.GoogleMapAPI.GoogleMapActivity" >
 
     <!-- 타이틀바 -->
@@ -29,24 +30,38 @@
         android:id="@+id/map"
         class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="450dp" />
+        android:layout_height="184dp" />
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="검색" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="장소리스트" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="검색" />
 
-    <!--<ListView
-        android:id="@+id/listView"
+        <!--<Button
+            android:id="@+id/button2"
+            android:layout_width="205dp"
+            android:layout_height="match_parent"
+            android:text="장소리스트" />-->
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
+        android:layout_height="335dp">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="5dp" />
+    </LinearLayout>
+
 
 
     <!-- 닫기 버튼 -->
@@ -57,6 +72,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:background="#00000000"
