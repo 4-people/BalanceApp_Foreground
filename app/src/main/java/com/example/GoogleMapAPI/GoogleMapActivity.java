@@ -702,10 +702,35 @@ public class GoogleMapActivity extends AppCompatActivity
                         SimpleDateFormat sdftime = new SimpleDateFormat("HH:mm:ss");
                         final String formatDate = sdfdate.format(date);
                         final String formatTime = sdftime.format(date);
-
-                        //db 삽입 부분
                         DBHelper helper = new DBHelper(getApplicationContext());
                         SQLiteDatabase db = helper.getWritableDatabase();
+
+
+                        // 카테고리 장소타입별로 자동분류
+                        if (c_study.contains(type))
+                            type = "study";
+                        else if (c_exercise.contains(type))
+                            type = "exercise";
+                        else if (c_leisure.contains(type))
+                            type = "leisure";
+                        else
+                            type = "other";
+
+                        // 장소 이름에 특정 단어가 들어가면 type을 알맞게 분류
+                        if (title.contains("아파트") || title.contains("빌라"))
+                            type = "rest";
+                        else if (title.contains("학교") || title.contains("도서관") || title.contains("학원"))
+                            type = "study";
+
+                        //이미 저장된 장소인 경우 그 카테고리로 자동분류
+                        Cursor cursor2 = db.rawQuery("select category from tb_timeline where place=\"" + title + "\"", null);
+                        if (cursor2.getCount() != 0) {
+                            cursor2.moveToLast();
+                            type = cursor2.getString(cursor2.getColumnIndex("category"));
+                        }
+
+
+                        //db 삽입 부분
                         Cursor cursor = db.rawQuery("select * from tb_timeline where endtime is NULL", null);
 
                         //아예 처음시작하는 활동인 경우
