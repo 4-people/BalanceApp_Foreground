@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mMsgView;
 
 
+
     BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -75,16 +77,32 @@ public class MainActivity extends AppCompatActivity {
 
         navigation.setSelectedItemId(R.id.nav_home);
 
+        Intent intent, intent_fore;
+        //서비스 시작
+        intent = new Intent(this, MyService.class);
+        startService(intent);
+        Toast.makeText(this, "start", Toast.LENGTH_SHORT).show();
 
 
-        Intent intent = new Intent(this, MyAlarm.class);
+        //포그라운드 서비스 시작
+        intent_fore = new Intent(this, MyService.class);
+        intent_fore.setAction("startForeground");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent_fore);
+        } else {
+            startService(intent_fore);
+        }
+
+
+        /*Intent intent = new Intent(this, MyAlarm.class);
 
         PendingIntent pi = PendingIntent.getBroadcast(this.getApplicationContext(),1,intent,0);
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
         Log.d(TAG,"30분마다 한번씩 팝업");
         am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),1000*60*2,pi);
 
-        startMyService();
+        startMyService();*/
 
 
     }

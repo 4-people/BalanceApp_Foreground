@@ -93,8 +93,8 @@ public class GoogleMapActivity extends AppCompatActivity
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 2002;
-    private static final int UPDATE_INTERVAL_MS = 60000;  // 1초=1000  1분
-    private static final int FASTEST_UPDATE_INTERVAL_MS = 60000; // 1분
+    private static final int UPDATE_INTERVAL_MS = 120*1000;  // 1초=1000  1분
+    private static final int FASTEST_UPDATE_INTERVAL_MS = 120*1000; // 1분
     //설명
     //.setInterval(15000) // 15 seconds
     //.setFastestInterval(5000) // 5000ms

@@ -41,7 +41,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBJqV4LdJbBOWM_WW0F4VIaCwnM9t8d4-o" />
+            android:value="@string/google_maps_API_key" />
 
         <activity
             android:name=".MainActivity"
@@ -51,6 +51,12 @@
         <activity android:name="com.example.GoogleMapAPI.GoogleMapActivity"
 
             android:theme="@style/AppTheme"/>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+
     </application>
 
 </manifest>
